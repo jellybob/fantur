@@ -22,5 +22,15 @@ namespace Fantur.Core.Tests
 
             Assert.AreEqual(expectedGuid, component.Guid);
         }
+
+        [TestMethod]
+        public void AllowsAccessToTheWiderUniverse()
+        {
+            var universe = new Universe();
+            var entity = new Entity {Universe = universe};
+            var component = new Component {Entity = entity};
+
+            Assert.AreSame(universe, component.Universe);
+        }
     }
 }

@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Component.cs" />
+    <Compile Include="Components\NamedEntity.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Universe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

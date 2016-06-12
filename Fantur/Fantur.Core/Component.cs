@@ -2,13 +2,23 @@
 
 namespace Fantur.Core
 {
+    [Flags]
+    public enum ComponentTypes
+    {
+        Component,
+        Name,
+        Location,
+    }
+
     public class Component
     {
         public Guid Guid;
+        public Entity Entity;
+        public Universe Universe => Entity.Universe;
+        public ComponentTypes ComponentType = 0;
 
-        public Component()
+        public Component() : this(Guid.NewGuid())
         {
-            this.Guid = Guid.NewGuid();
         }
 
         public Component(Guid guid)

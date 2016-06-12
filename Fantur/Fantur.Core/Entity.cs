@@ -1,37 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Fantur.Core
 {
     public class Entity
     {
         public Guid Guid;
-        public Dictionary<Guid, Component> Components;
+        public Dictionary<ComponentTypes, Component> Components;
+        public Universe Universe;
+        public ComponentTypes IncludedComponents;
 
-        public Entity()
+        public Entity() : this(Guid.NewGuid())
         {
-            Initialize(Guid.NewGuid());
         }
 
         public Entity(Guid guid)
         {
-            Initialize(guid);
+            Guid = guid;
+            Components = new Dictionary<ComponentTypes, Component>();
         }
-
+        
         public void AddComponent(Component component)
         {
-            Components.Add(component.Guid, component);
+            component.Entity = this;
+            IncludedComponents = IncludedComponents | component.ComponentType;
+            Components.Add(component.ComponentType, component);
         }
 
         public Component FindComponentByGuid(Guid guid)
         {
-            return Components[guid];
+            return Components.Values.FirstOrDefault(c => c.Guid == guid);
         }
 
-        private void Initialize(Guid guid)
+        public Component FindComponentByType(ComponentTypes type)
         {
-            Guid = guid;
-            Components = new Dictionary<Guid, Component>();
+            return Components[type];
+        }
+
+        public bool HasComponent(ComponentTypes type)
+        {
+            return IncludedComponents.HasFlag(type);
         }
     }
 }

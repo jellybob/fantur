@@ -1,4 +1,5 @@
 ﻿using System;
+using Fantur.Core.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Fantur.Core.Tests
@@ -43,6 +44,37 @@ namespace Fantur.Core.Tests
             entity.AddComponent(component);
 
             Assert.AreSame(component, entity.FindComponentByGuid(guid));
+        }
+
+        [TestMethod]
+        public void TestAddingAComponentToAnEntitySetsAReference()
+        {
+            var entity = new Entity();
+            var component = new Component();
+            entity.AddComponent(component);
+
+            Assert.AreSame(entity, component.Entity);
+        }
+
+        [TestMethod]
+        public void TestComponentsCanBeFoundByType()
+        {
+            var entity = new Entity();
+            var nameComponent = new NamedEntity() { Name = "Test Entity" };
+            entity.AddComponent(nameComponent);
+
+            var foundComponent = entity.FindComponentByType(ComponentTypes.Name);
+            Assert.AreSame(nameComponent, foundComponent);
+        }
+
+        [TestMethod]
+        public void TestEntitiesKnowWhatComponentsTheyContain()
+        {
+            var entity = new Entity();
+            var nameComponent = new NamedEntity() {Name = "Test Entity"};
+            entity.AddComponent(nameComponent);
+
+            Assert.IsTrue(entity.HasComponent(ComponentTypes.Name));
         }
     }
 }
