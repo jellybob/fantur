@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Fantur.Core.Components;
+﻿using Fantur.Core.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Fantur.Core.Tests
@@ -67,6 +65,23 @@ namespace Fantur.Core.Tests
             var foundComponents =
                 Universe.FindAllComponentsOfType<NamedEntity>(ComponentTypes.Name);
             Assert.AreEqual(2, foundComponents.Count);
+        }
+
+        [TestMethod]
+        public void TestUniverseCallsUpdateForEveryComponentEachTick()
+        {
+            var testTracker1 = new UniverseTestTracker();
+            Entity.AddComponent(testTracker1);
+
+            var secondEntity = new Entity();
+            var testTracker2 = new UniverseTestTracker();
+            secondEntity.AddComponent(testTracker2);
+            Universe.AddEntity(secondEntity);
+
+            Universe.Update();
+
+            Assert.IsTrue(testTracker1.Updated);
+            Assert.IsTrue(testTracker2.Updated);
         }
     }
 }

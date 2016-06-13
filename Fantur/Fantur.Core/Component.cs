@@ -7,7 +7,7 @@ namespace Fantur.Core
     {
         Component,
         Name,
-        Location,
+        UniverseTestTracker,
     }
 
     public class Component
@@ -23,7 +23,12 @@ namespace Fantur.Core
 
         public Component(Guid guid)
         {
-            this.Guid = guid;
+            Guid = guid;
+        }
+
+        public virtual void Update()
+        {
+            
         }
     }
 }
