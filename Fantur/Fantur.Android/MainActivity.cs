@@ -1,30 +1,28 @@
 ﻿using System;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Fantur.Core;
 
-namespace Fantur.Android
+namespace Fantur.AndroidApp
 {
     [Activity(Label = "Fantur", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    public class MainActivity : ListActivity
     {
-        int count = 1;
+        protected Universe Universe;
+        private string[] items;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
-
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
-
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            Universe = BigBang.CreateUniverse();
+            items = Universe.FindAllEntitiesWithComponent(ComponentTypes.Name).Select(e => e.Name).ToArray();
+            ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
         }
     }
 }

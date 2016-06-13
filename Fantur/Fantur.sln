@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantur.Android", "Fantur.Android\Fantur.Android.csproj", "{474CD790-FDD3-4FCF-8907-8124742A00B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantur.AndroidApp", "Fantur.Android\Fantur.AndroidApp.csproj", "{474CD790-FDD3-4FCF-8907-8124742A00B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantur.Core", "Fantur.Core\Fantur.Core.csproj", "{C63A8B78-3F32-4EE5-9BA4-8C1DE3DF5795}"
 EndProject

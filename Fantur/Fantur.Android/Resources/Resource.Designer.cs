@@ -11,7 +11,7 @@
 
 [assembly: global::Android.Runtime.ResourceDesignerAttribute("Fantur.Android.Resource", IsApplication=true)]
 
-namespace Fantur.Android
+namespace Fantur.AndroidApp
 {
 	
 	

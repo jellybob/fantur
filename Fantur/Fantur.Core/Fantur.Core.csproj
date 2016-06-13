@@ -35,6 +35,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BigBang.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Components\NamedEntity.cs" />
     <Compile Include="Components\UniverseTestTracker.cs" />

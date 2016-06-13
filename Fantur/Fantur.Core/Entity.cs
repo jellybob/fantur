@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Fantur.Core.Components;
 
 namespace Fantur.Core
 {
@@ -10,6 +11,15 @@ namespace Fantur.Core
         public Dictionary<ComponentTypes, Component> Components;
         public Universe Universe;
         public ComponentTypes IncludedComponents;
+
+        public string Name
+        {
+            get
+            {
+                var nameEntity = (NamedEntity) FindComponentByType(ComponentTypes.Name);
+                return nameEntity.Name;
+            }
+        }
 
         public Entity() : this(Guid.NewGuid())
         {
