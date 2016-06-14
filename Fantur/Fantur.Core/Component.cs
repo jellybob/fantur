@@ -8,6 +8,9 @@ namespace Fantur.Core
         Component,
         Name,
         UniverseTestTracker,
+        Planet,
+        Player,
+        Location,
     }
 
     public class Component
@@ -17,13 +20,18 @@ namespace Fantur.Core
         public Universe Universe => Entity.Universe;
         public ComponentTypes ComponentType = 0;
 
-        public Component() : this(Guid.NewGuid())
+        public Component() : this(ComponentTypes.Component)
         {
         }
 
-        public Component(Guid guid)
+        public Component(ComponentTypes componentType) : this(Guid.NewGuid(), componentType)
+        {
+        }
+
+        public Component(Guid guid, ComponentTypes componentType)
         {
             Guid = guid;
+            ComponentType = componentType;
         }
 
         public virtual void Update()

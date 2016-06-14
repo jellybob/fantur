@@ -4,9 +4,8 @@
     {
         public bool Updated;
 
-        public UniverseTestTracker()
+        public UniverseTestTracker() : base(ComponentTypes.UniverseTestTracker)
         {
-            ComponentType = ComponentTypes.UniverseTestTracker;
         }
 
         public override void Update()

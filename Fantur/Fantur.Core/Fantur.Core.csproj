@@ -37,7 +37,10 @@
   <ItemGroup>
     <Compile Include="BigBang.cs" />
     <Compile Include="Component.cs" />
+    <Compile Include="Components\Location.cs" />
     <Compile Include="Components\NamedEntity.cs" />
+    <Compile Include="Components\Planet.cs" />
+    <Compile Include="Components\Player.cs" />
     <Compile Include="Components\UniverseTestTracker.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Universe.cs" />

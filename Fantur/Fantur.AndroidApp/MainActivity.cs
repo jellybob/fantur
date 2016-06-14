@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Android.App;
 using Android.Widget;
 using Android.OS;
@@ -10,6 +11,7 @@ namespace Fantur.AndroidApp
     public class MainActivity : ListActivity
     {
         public Universe Universe;
+        public Entity Player;
         protected string[] EntityNames;
 
         protected override void OnCreate(Bundle bundle)
@@ -17,7 +19,13 @@ namespace Fantur.AndroidApp
             base.OnCreate(bundle);
 
             Universe = BigBang.CreateUniverse();
-            EntityNames = Universe.FindAllEntitiesWithComponent(ComponentTypes.Name).Select(e => e.Name).ToArray();
+            Player = Universe.FindAllEntitiesWithComponent(ComponentTypes.Player)[0];
+            var playerLocation = (Core.Components.Location) Player.FindComponentByType(ComponentTypes.Location);
+
+            EntityNames = Universe.FindAllEntitiesWithComponent(ComponentTypes.Name | ComponentTypes.Planet).Select(
+                e => e == playerLocation.CurrentLocation ? $"* {e.Name}" : e.Name
+            ).ToArray();
+
             ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, EntityNames);
         }
     }
