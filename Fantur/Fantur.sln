@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantur.AndroidApp", "Fantur.Android\Fantur.AndroidApp.csproj", "{474CD790-FDD3-4FCF-8907-8124742A00B4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantur.Core", "Fantur.Core\Fantur.Core.csproj", "{C63A8B78-3F32-4EE5-9BA4-8C1DE3DF5795}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantur.Core.Tests", "Fantur.Core.Tests\Fantur.Core.Tests.csproj", "{4ECD0B03-5EE3-428F-9744-A2772195A031}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantur.AndroidApp", "Fantur.AndroidApp\Fantur.AndroidApp.csproj", "{13365A13-379C-4994-BDD9-4759FBD4A66C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,12 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{474CD790-FDD3-4FCF-8907-8124742A00B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{474CD790-FDD3-4FCF-8907-8124742A00B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{474CD790-FDD3-4FCF-8907-8124742A00B4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{474CD790-FDD3-4FCF-8907-8124742A00B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{474CD790-FDD3-4FCF-8907-8124742A00B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{474CD790-FDD3-4FCF-8907-8124742A00B4}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{C63A8B78-3F32-4EE5-9BA4-8C1DE3DF5795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C63A8B78-3F32-4EE5-9BA4-8C1DE3DF5795}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C63A8B78-3F32-4EE5-9BA4-8C1DE3DF5795}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,6 +23,12 @@ Global
 		{4ECD0B03-5EE3-428F-9744-A2772195A031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ECD0B03-5EE3-428F-9744-A2772195A031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ECD0B03-5EE3-428F-9744-A2772195A031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13365A13-379C-4994-BDD9-4759FBD4A66C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13365A13-379C-4994-BDD9-4759FBD4A66C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13365A13-379C-4994-BDD9-4759FBD4A66C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{13365A13-379C-4994-BDD9-4759FBD4A66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13365A13-379C-4994-BDD9-4759FBD4A66C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13365A13-379C-4994-BDD9-4759FBD4A66C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
