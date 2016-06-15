@@ -19,6 +19,11 @@ namespace Fantur.Core
                 var nameEntity = (NamedEntity) FindComponentByType(ComponentTypes.Name);
                 return nameEntity.Name;
             }
+            set
+            {
+                var nameEntity = (NamedEntity) FindComponentByType(ComponentTypes.Name);
+                nameEntity.Name = value;
+            }
         }
 
         public long Orbit
@@ -27,6 +32,11 @@ namespace Fantur.Core
             {
                 var location = (Location) FindComponentByType(ComponentTypes.Location);
                 return location.CurrentOrbit;
+            }
+            set
+            {
+                var location = (Location) FindComponentByType(ComponentTypes.Location);
+                location.CurrentOrbit = value;
             }
         }
 

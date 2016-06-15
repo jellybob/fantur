@@ -43,6 +43,7 @@
     <Compile Include="Components\Player.cs" />
     <Compile Include="Components\UniverseTestTracker.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Universe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

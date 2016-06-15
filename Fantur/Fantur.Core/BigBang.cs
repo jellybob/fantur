@@ -58,7 +58,7 @@ namespace Fantur.Core
             var player = new Entity();
             player.AddComponent(new NamedEntity("Player"));
             player.AddComponent(new Player());
-            player.AddComponent(new Location(PlanetPositions[2]));
+            player.AddComponent(new Location(8942380));
             Universe.AddEntity(player);
         }
 
