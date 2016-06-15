@@ -60,7 +60,7 @@ namespace Fantur.Core.Tests
         public void TestComponentsCanBeFoundByType()
         {
             var entity = new Entity();
-            var nameComponent = new NamedEntity() { Name = "Test Entity" };
+            var nameComponent = new NamedEntity("Test Entity");
             entity.AddComponent(nameComponent);
 
             var foundComponent = entity.FindComponentByType(ComponentTypes.Name);
@@ -71,7 +71,7 @@ namespace Fantur.Core.Tests
         public void TestEntitiesKnowWhatComponentsTheyContain()
         {
             var entity = new Entity();
-            var nameComponent = new NamedEntity() {Name = "Test Entity"};
+            var nameComponent = new NamedEntity("Test Entity");
             entity.AddComponent(nameComponent);
 
             Assert.IsTrue(entity.HasComponent(ComponentTypes.Name));

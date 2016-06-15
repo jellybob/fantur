@@ -19,7 +19,19 @@ namespace Fantur.Core
             "Pluto", // Yup, I went there.
         };
 
-        public List<Entity> Planets;
+        public long[] PlanetPositions = new[]
+        {
+            57910000,
+            108200000,
+            149600000,
+            227940000,
+            778330000,
+            1429400000,
+            2870990000,
+            4504300000,
+            5913520000,
+        };
+
         public Universe Universe;
 
         public static Universe CreateUniverse()
@@ -44,24 +56,21 @@ namespace Fantur.Core
         private void CreatePlayer()
         {
             var player = new Entity();
-            player.AddComponent(new NamedEntity() { Name = "Player" });
+            player.AddComponent(new NamedEntity("Player"));
             player.AddComponent(new Player());
-
-            var playerLocation = new Location(Planets[2]); // Start on Earth.
-            player.AddComponent(playerLocation);
+            player.AddComponent(new Location(PlanetPositions[2]));
             Universe.AddEntity(player);
         }
 
         private void CreatePlanets()
         {
-            Planets = new List<Entity>();
-            foreach (var name in PlanetNames)
+            for (var i = 0; i < PlanetNames.Length; i++)
             {
                 var planet = new Entity();
-                planet.AddComponent(new NamedEntity() { Name = name });
+                planet.AddComponent(new NamedEntity(PlanetNames[i]));
                 planet.AddComponent(new Planet());
+                planet.AddComponent(new Location(PlanetPositions[i]));
                 Universe.AddEntity(planet);
-                Planets.Add(planet);
             }
         }
     }

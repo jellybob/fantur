@@ -21,6 +21,15 @@ namespace Fantur.Core
             }
         }
 
+        public long Orbit
+        {
+            get
+            {
+                var location = (Location) FindComponentByType(ComponentTypes.Location);
+                return location.CurrentOrbit;
+            }
+        }
+
         public Entity() : this(Guid.NewGuid())
         {
         }

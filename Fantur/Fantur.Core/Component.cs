@@ -5,12 +5,12 @@ namespace Fantur.Core
     [Flags]
     public enum ComponentTypes
     {
-        Component,
-        Name,
-        UniverseTestTracker,
-        Planet,
-        Player,
-        Location,
+        Component = 0,
+        Name = 1,
+        UniverseTestTracker = 2,
+        Planet = 4,
+        Player = 8,
+        Location = 16,
     }
 
     public class Component
@@ -20,7 +20,11 @@ namespace Fantur.Core
         public Universe Universe => Entity.Universe;
         public ComponentTypes ComponentType = 0;
 
-        public Component() : this(ComponentTypes.Component)
+        public Component() : this(Guid.NewGuid(), ComponentTypes.Component)
+        {
+        }
+
+        public Component(Guid guid) : this(guid, ComponentTypes.Component)
         {
         }
 

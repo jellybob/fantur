@@ -20,10 +20,9 @@ namespace Fantur.AndroidApp
 
             Universe = BigBang.CreateUniverse();
             Player = Universe.FindAllEntitiesWithComponent(ComponentTypes.Player)[0];
-            var playerLocation = (Core.Components.Location) Player.FindComponentByType(ComponentTypes.Location);
 
-            EntityNames = Universe.FindAllEntitiesWithComponent(ComponentTypes.Name | ComponentTypes.Planet).Select(
-                e => e == playerLocation.CurrentLocation ? $"* {e.Name}" : e.Name
+            EntityNames = Universe.FindAllEntitiesWithComponent(ComponentTypes.Planet).Select(
+                e => e.Orbit == Player.Orbit ? $"* {e.Name}" : $"{e.Name}"
             ).ToArray();
 
             ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, EntityNames);

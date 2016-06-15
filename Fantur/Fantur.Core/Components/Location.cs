@@ -2,11 +2,11 @@
 {
     public class Location : Component
     {
-        public Entity CurrentLocation;
+        public long CurrentOrbit;
 
-        public Location(Entity currentLocation) : base(ComponentTypes.Location)
+        public Location(long currentOrbit) : base(ComponentTypes.Location)
         {
-            CurrentLocation = currentLocation;
+            CurrentOrbit = currentOrbit;
         }
     }
 }

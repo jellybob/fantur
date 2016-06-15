@@ -4,8 +4,9 @@
     {
         public string Name;
 
-        public NamedEntity() : base(ComponentTypes.Name)
+        public NamedEntity(string name) : base(ComponentTypes.Name)
         {
+            Name = name;
         }
     }
 }

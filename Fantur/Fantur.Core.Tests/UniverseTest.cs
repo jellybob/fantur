@@ -41,7 +41,7 @@ namespace Fantur.Core.Tests
             var unexpectedEntity = new Entity();
             Universe.AddEntity(unexpectedEntity);
 
-            Entity.AddComponent(new NamedEntity());
+            Entity.AddComponent(new NamedEntity("Name"));
 
             var foundEntities = Universe.FindAllEntitiesWithComponent(ComponentTypes.Name);
             Assert.AreEqual(1, foundEntities.Count);
@@ -51,11 +51,11 @@ namespace Fantur.Core.Tests
         [TestMethod]
         public void TestUniverseCanFindAllComponentsOfAType()
         {
-            var firstName = new NamedEntity();
+            var firstName = new NamedEntity("First Name");
             Entity.AddComponent(firstName);
 
             var extraEntity = new Entity();
-            var extraName = new NamedEntity();
+            var extraName = new NamedEntity("Extra Name");
             extraEntity.AddComponent(extraName);
             Universe.AddEntity(extraEntity);
 
