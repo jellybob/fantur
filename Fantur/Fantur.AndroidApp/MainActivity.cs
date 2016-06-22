@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Android.App;
 using Android.Widget;
 using Android.OS;
 using Android.Views;
 using Fantur.Core;
-using Fantur.Core.Components;
 using Fantur.Core.ViewModels;
-using Java.Lang;
 
 namespace Fantur.AndroidApp
 {
@@ -17,15 +13,15 @@ namespace Fantur.AndroidApp
     {
         public class PlanetListViewAdapter : BaseAdapter<Entity>
         {
-            private Activity context;
-            private PlanetListView model;
-            public override int Count => model.VisibleEntities().Count;
-            public override Entity this[int position] => model.VisibleEntities()[position];
+            protected readonly Activity Context;
+            protected readonly PlanetListView Model;
+            public override int Count => Model.VisibleEntities().Count;
+            public override Entity this[int position] => Model.VisibleEntities()[position];
 
             public PlanetListViewAdapter(Activity context, PlanetListView model)
             {
-                this.context = context;
-                this.model = model;
+                this.Context = context;
+                this.Model = model;
                 model.StateChange += (sender, args) => NotifyDataSetChanged();
             }
 
@@ -36,9 +32,9 @@ namespace Fantur.AndroidApp
 
             public override View GetView(int position, View convertView, ViewGroup parent)
             {
-                var view = convertView ?? context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
+                var view = convertView ?? Context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
                 var entity = this[position];
-                var label = model.PlayerIsAt(entity)
+                var label = Model.PlayerIsAt(entity)
                     ? $"* {entity.Name} - {entity.Orbit}"
                     : $"{entity.Name} - {entity.Orbit}";
 
